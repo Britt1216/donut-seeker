@@ -1,4 +1,4 @@
-function loadPage() {
+function findDonut() {
   var options = {
     enableHighAccuracy: true,
     timeout: 5000,
