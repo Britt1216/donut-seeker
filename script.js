@@ -20,7 +20,7 @@ function loadPage() {
   }
 
   function error(err) {
-    console.warn(`ERROR(${err.code}): ${err.message}`);
+    console.log(err);
   }
 
   function findDonut(lats, long) {
