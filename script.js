@@ -16,14 +16,14 @@ function findDonut() {
       center: coordinates,
     });
     var marker = new google.maps.Marker({ position: coordinates, map: map });
-    findDonut(lats, long);
+    mapDonut(lats, long);
   }
 
   function error(err) {
     console.warn(`ERROR(${err.code}): ${err.message}`);
   }
 
-  function findDonut(lats, long) {
+  function mapDonut(lats, long) {
     var pyrmont = new google.maps.LatLng(lats, long);
 
     map = new google.maps.Map(document.getElementById("map"), {
@@ -41,6 +41,7 @@ function findDonut() {
     service.textSearch(request, callback);
 
     function callback(results, status) {
+      var closest = results[0];
       if (status == google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
           var place = results[i];
