@@ -34,7 +34,7 @@ function loadPage() {
     var request = {
       location: pyrmont,
       radius: "500",
-      query: "restaurant",
+      query: "donut",
     };
 
     service = new google.maps.places.PlacesService(map);
