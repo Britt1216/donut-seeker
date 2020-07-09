@@ -42,6 +42,7 @@ function findDonut() {
 
     function callback(results, status) {
       var closest = results[0];
+      reviewBusiness(results);
       if (status == google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
           var place = results[i];
@@ -67,4 +68,8 @@ function initMap() {
   });
   // The marker, positioned at Uluru
   var marker = new google.maps.Marker({ position: uluru, map: map });
+}
+
+function reviewBusiness (results){
+
 }
