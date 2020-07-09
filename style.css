@@ -1,3 +1,7 @@
+body {
+    background-color: bisque;
+}
+
 #Dancy-D {
     border: 1px solid;
     border-radius: 15px;
@@ -10,11 +14,33 @@
     border: 1px solid;
     border-radius: 15px;
     font-size: 30px;
+    margin: 20px;
     padding: 20px 0px 20px 0px;
     text-align: center;
+}
+
+#distant-donut-box {
+    margin: 20px;
+    padding-left: 150px;
+}
+
+#distant-button {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+#distant-input {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+
+}
+#local-donut-box {
+    margin: 20px;
+    padding-left: 150px;
 }
 
 #map-view {
     border: 1px solid;
     border-radius: 15px;
+    margin: 20px;
 }
