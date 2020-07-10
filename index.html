@@ -6,19 +6,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
     <link rel="stylesheet" href="style.css">
     <title>Donut Seeker</title>
-    <style>
-      html,
-      body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-
-      #map {
-        height: 100%;
-        width: 100%;
-      }
-    </style>
+ 
   </head>
   <body>
     <section class="section">
@@ -62,10 +50,10 @@
       </div><!--button section end-->
 
       <div class="columns"> <!--map start-->
-        <div class="column is-full" id="map-view">Map</div>
+        <div class="column is-full"><div id="map"></div></div>
       </div><!--map end-->
 
-      <div id="map"></div>
+      
 
 
     </div> <!--container end-->
@@ -75,7 +63,7 @@
     <script
       async
       defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPDVh2zxw_0DqmSUxfeAW-Zzdhh5cWA3o&libraries=places"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPDVh2zxw_0DqmSUxfeAW-Zzdhh5cWA3o&libraries=places&callback=initMap"
     ></script>
 
  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
