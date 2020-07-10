@@ -9,7 +9,7 @@ function findDonut() {
     var crd = pos.coords;
     var lats = crd.latitude;
     var long = crd.longitude;
-
+    identifyBusiness(lats,long)
     var coordinates = { lat: lats, lng: long };
     var map = new google.maps.Map(document.getElementById("map"), {
       zoom: 4,
@@ -77,17 +77,21 @@ function initMap() {
 }
   //need to call from Yelp for this to work in order to pull a business ID. The only way to get through for reviews would be through the yelp call. 
 
-  function reviewBusiness (){
-    var searchTerm = "donut";
+  function identifyBusiness(lats,long) {
+    var searchTerm = "Mr. Donut";
     var searchLocation = "80112";
-
+    var yelpurl = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?latitude=${lats}&longitude=${long}`;
     $.ajax({
-      url: `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/?term=${searchTerm}&location=${searchLocation}`,
+      url: yelpurl,
       method: "GET",
       headers: {
-        "Authorization":'Bearer b3q5oAHR8ngDcef1-ZiIfTxJBneLwWXNHtLQ8NmqD0D74wSR_LKH1E25lBIJCgZX-65i58WMmyXnEwlAw-Vf4aNtvu5A93W5BIvtjHtNRYjo_P0zbah-kdaNPSsGX3Yx'
-      }
+        Authorization:
+          "Bearer b3q5oAHR8ngDcef1-ZiIfTxJBneLwWXNHtLQ8NmqD0D74wSR_LKH1E25lBIJCgZX-65i58WMmyXnEwlAw-Vf4aNtvu5A93W5BIvtjHtNRYjo_P0zbah-kdaNPSsGX3Yx",
+      },
     }).then(function (response) {
-      console.log(response);
+        yelpResponse(response)
     });
-  }   reviewBusiness()
+  }
+    function yelpResponse(response){
+      console.log(response);
+    }
