@@ -54,12 +54,21 @@ function mapDonut(lats, long) {
     console.log(results);
     var closest = results[0];
     if (status == google.maps.places.PlacesServiceStatus.OK) {
-      for (var i = 0; i < results.length; i++) {
-        var place = results[i];
-        createMarker(results[i]);
-      }
+             var place = results[0];
+             var id= place.place_id
+             
+        createMarker(results[0]);
+        var idUrl= `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?place_id=${id}&fields=name,rating,review,formatted_phone_number&key=${api}`;
+        console.log(idUrl);
+     $.ajax ({
+        url: idUrl,
+        method: "GET",
+             
+     }).then(function(results){
+        console.log(results.result.reviews);
+     })
     }
-  }
+    }
   function createMarker(place) {
     new google.maps.Marker({
       position: place.geometry.location,
