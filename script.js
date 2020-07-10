@@ -20,7 +20,7 @@ function findDonut() {
   }
 
   function error(err) {
-    console.warn(`ERROR(${err.code}): ${err.message}`);
+    console.log(err);
   }
 
   function mapDonut(lats, long) {
