@@ -61,15 +61,18 @@ function mapDonut(lats, long) {
     console.log(closest);
     openDialog(closest);
     if (status == google.maps.places.PlacesServiceStatus.OK) {
-      var place = results[0].id;
-      var purl = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${place}fields=name,rating,formatted_phone_number&key=${api}`;
-      $.ajax({
-        url: purl,
-        method: "GET",
-      }).then(function (response) {
-        console.log("place response is " + response);
-      });
+      var place = results[0];
+      var id = place.place_id;
+
       createMarker(results[0]);
+      var idUrl = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?place_id=${id}&fields=name,rating,review,formatted_phone_number&key=${api}`;
+      console.log(idUrl);
+      $.ajax({
+        url: idUrl,
+        method: "GET",
+      }).then(function (results) {
+        console.log(results.result.reviews);
+      });
     }
   }
   function createMarker(place) {
