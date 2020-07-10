@@ -43,8 +43,9 @@ body {
 #map-view {
   border: 1px solid;
   border-radius: 15px;
+  margin: 20px;
+
 }
-    border: 1px solid;
-    border-radius: 15px;
-    margin: 20px;
+#map {
+    height: 800px;
 }
