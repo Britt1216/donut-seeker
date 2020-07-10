@@ -76,16 +76,30 @@ function initMap() {
   var marker = new google.maps.Marker({ position: uluru, map: map });
 }
   //need to call from Yelp for this to work in order to pull a business ID. The only way to get through for reviews would be through the yelp call. 
-function reviewBusiness (){
-  var id = "____";
+
+  function reviewBusiness (){
+    var searchTerm = "donut";
+    var searchLocation = "80112";
+    $.ajax({
+      url: `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/?term=${searchTerm}&location=${searchLocation}`,
+      method: "GET",
+      headers: {
+        "Authorization":'Bearer b3q5oAHR8ngDcef1-ZiIfTxJBneLwWXNHtLQ8NmqD0D74wSR_LKH1E25lBIJCgZX-65i58WMmyXnEwlAw-Vf4aNtvu5A93W5BIvtjHtNRYjo_P0zbah-kdaNPSsGX3Yx'
+      }
+    }).then(function (response) {
+      console.log(response);
+    });
+  }   reviewBusiness()
   
-  $.ajax({
-    url: `https://cors-anywhere.herokuapp.com/api.yelp.com/v3/businesses/{id}/reviews}`,
-    method: "GET",
-    headers: {
-      "Authorization":'Bearer b3q5oAHR8ngDcef1-ZiIfTxJBneLwWXNHtLQ8NmqD0D74wSR_LKH1E25lBIJCgZX-65i58WMmyXnEwlAw-Vf4aNtvu5A93W5BIvtjHtNRYjo_P0zbah-kdaNPSsGX3Yx'
-    }
-  }).then(function (response) {
-    console.log(response);
-  });
-}   reviewBusiness()
+//   function reviewBusiness (){
+//     var name = "City+Donuts";
+//   $.ajax({
+//     url: `https://cors-anywhere.herokuapp.com/api.yelp.com/v3/businesses/${name}/reviews`,
+//     method: "GET",
+//     headers: {
+//       "Authorization":'Bearer b3q5oAHR8ngDcef1-ZiIfTxJBneLwWXNHtLQ8NmqD0D74wSR_LKH1E25lBIJCgZX-65i58WMmyXnEwlAw-Vf4aNtvu5A93W5BIvtjHtNRYjo_P0zbah-kdaNPSsGX3Yx'
+//     }
+//   }).then(function (response) {
+//     console.log(response);
+//   });
+// }   reviewBusiness()
