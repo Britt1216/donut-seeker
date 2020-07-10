@@ -28,7 +28,7 @@ function findDonut() {
 
     map = new google.maps.Map(document.getElementById("map"), {
       center: pyrmont,
-      zoom: 15,
+      zoom: 12,
     });
 
     var request = {
@@ -46,9 +46,15 @@ function findDonut() {
         for (var i = 0; i < results.length; i++) {
           var place = results[i];
           console.log(place);
-          //   createMarker(results[i]);
+          createMarker(results[i]);
         }
       }
+    }
+    function createMarker(place) {
+      new google.maps.Marker({
+        position: place.geometry.location,
+        map: map,
+      });
     }
   }
 
