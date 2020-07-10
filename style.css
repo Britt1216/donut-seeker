@@ -8,16 +8,24 @@ body {
 }
 
 #intro {
-  font-size: 100px;
+  color: rgb(224, 66, 122);
+  font-size: 150px;
+  font-family: "Modak", cursive;
 }
 
 #description {
   border: 1px solid;
   border-radius: 15px;
   font-size: 30px;
+  font-family: "Cabin", sans-serif;
+  /* font-style: italic; */
   margin: 20px;
   padding: 20px 0px 20px 0px;
   text-align: center;
+}
+
+.button {
+  font-family: "Cabin", sans-serif;
 }
 
 #distant-donut-box {
