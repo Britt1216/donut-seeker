@@ -42,11 +42,11 @@ function findDonut() {
 
     function callback(results, status) {
       var closest = results[0];
-      reviewBusiness(results);
+      //reviewBusiness(results);
       if (status == google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
           var place = results[i];
-          console.log(place);
+         // console.log(place);
           //   createMarker(results[i]);
         }
       }
@@ -70,6 +70,18 @@ function initMap() {
   var marker = new google.maps.Marker({ position: uluru, map: map });
 }
 
-function reviewBusiness (results){
+function reviewBusiness (){
+  var searchTerm = "donut";
+  var searchLocation = "80112";
+  $.ajax({
+    url: `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${searchTerm}&location=${searchLocation}`,
+    method: "GET",
+    headers: {
+      "Authorization":'Bearer b3q5oAHR8ngDcef1-ZiIfTxJBneLwWXNHtLQ8NmqD0D74wSR_LKH1E25lBIJCgZX-65i58WMmyXnEwlAw-Vf4aNtvu5A93W5BIvtjHtNRYjo_P0zbah-kdaNPSsGX3Yx'
+    }
+  }).then(function (response) {
+    console.log(response);
+  });
 
 }
+reviewBusiness()
