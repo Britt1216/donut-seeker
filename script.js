@@ -66,6 +66,7 @@ function mapDonut(lats, long) {
              
      }).then(function(results){
         console.log(results.result.reviews);
+        console.log(results.result.rating);
      })
     }
     }
