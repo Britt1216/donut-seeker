@@ -1,34 +1,39 @@
-function zipDonut() {
-  var zip = $("#distant-input").val();
-  var api = "AIzaSyDPDVh2zxw_0DqmSUxfeAW-Zzdhh5cWA3o";
-  var zipUrl = `https://maps.googleapis.com/maps/api/geocode/json?key=${api}&components=postal_code:${zip}`;
+var api = "AIzaSyDPDVh2zxw_0DqmSUxfeAW-Zzdhh5cWA3o";
+function findDonut() {
+  var options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0,
+  };
+
+  navigator.geolocation.getCurrentPosition(success, error, options);
+}
+
+function giphyDonut(cb) {
+  var mapi = `7707V2ugjiHVu7IBmawngyunCUKEIfxE`;
+  var queryURL = `http://api.giphy.com/v1/gifs/search?q=donut&api_key=${mapi}&limit=1`;
 
   $.ajax({
-    url: zipUrl,
+    url: queryURL,
     method: "GET",
   }).then(function (response) {
-    var lats = response.results[0].geometry.location.lat;
-    var long = response.results[0].geometry.location.lng;
-    successDrawMap(lats, long);
+    console.log(response);
+    cb(response);
   });
 }
 
-function success(pos) {
-  var crd = pos.coords;
-  var lats = crd.latitude;
-  var long = crd.longitude;
-  successDrawMap(lats, long);
-}
-
-function successDrawMap(lats, long) {
-  var coordinates = { lat: lats, lng: long };
+function initMap() {
+  // The location of VOODOO
+  var voodoo = { lat: 45.519692, lng: -122.680496 };
+  // The map, centered at VOODOO
   var map = new google.maps.Map(document.getElementById("map"), {
     zoom: 4,
-    center: coordinates,
+    center: voodoo,
   });
-  var marker = new google.maps.Marker({ position: coordinates, map: map });
-  mapDonut(lats, long);
+  // The marker, positioned at Uluru
+  var marker = new google.maps.Marker({ position: voodoo, map: map });
 }
+
 function error(err) {
   console.log(err);
 }
@@ -48,16 +53,23 @@ function mapDonut(lats, long) {
   };
 
   service = new google.maps.places.PlacesService(map);
+
   service.textSearch(request, callback);
 
   function callback(results, status) {
-    console.log(results);
     var closest = results[0];
+    console.log(closest);
+    openDialog(closest);
     if (status == google.maps.places.PlacesServiceStatus.OK) {
-      for (var i = 0; i < results.length; i++) {
-        var place = results[i];
-        createMarker(results[i]);
-      }
+      var place = results[0].id;
+      var purl = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${place}fields=name,rating,formatted_phone_number&key=${api}`;
+      $.ajax({
+        url: purl,
+        method: "GET",
+      }).then(function (response) {
+        console.log("place response is " + response);
+      });
+      createMarker(results[0]);
     }
   }
   function createMarker(place) {
@@ -67,26 +79,49 @@ function mapDonut(lats, long) {
     });
   }
 }
-function findDonut() {
-  var options = {
-    enableHighAccuracy: true,
-    timeout: 5000,
-    maximumAge: 0,
-  };
 
-  navigator.geolocation.getCurrentPosition(success, error, options);
+function openDialog(closest) {
+  giphyDonut(function (response) {
+    var dis = response;
+  });
+
+  var name = closest.name;
+  var address = closest.formatted_address;
+  var isOpen = closest.opening_hours.isOpen();
+  $(".donut-shop-name").text(name);
+  $(".donut-shop-address").text(address);
+  $("#dialog").dialog();
 }
 
-var api = "AIzaSyDPDVh2zxw_0DqmSUxfeAW-Zzdhh5cWA3o";
+function success(pos) {
+  var crd = pos.coords;
+  var lats = crd.latitude;
+  var long = crd.longitude;
+  successDrawMap(lats, long);
+}
 
-function initMap() {
-  // The location of Uluru
-  var uluru = { lat: 45.519692, lng: -122.680496 };
-  // The map, centered at Uluru
+function successDrawMap(lats, long) {
+  var coordinates = { lat: lats, lng: long };
   var map = new google.maps.Map(document.getElementById("map"), {
     zoom: 4,
-    center: uluru,
+    center: coordinates,
   });
-  // The marker, positioned at Uluru
-  var marker = new google.maps.Marker({ position: uluru, map: map });
+  var marker = new google.maps.Marker({ position: coordinates, map: map });
+  mapDonut(lats, long);
+}
+
+function zipDonut() {
+  var zip = $("#distant-input").val();
+  var api = "AIzaSyDPDVh2zxw_0DqmSUxfeAW-Zzdhh5cWA3o";
+  var zipUrl = `https://maps.googleapis.com/maps/api/geocode/json?key=${api}&components=postal_code:${zip}`;
+
+  $.ajax({
+    url: zipUrl,
+    method: "GET",
+  }).then(function (response) {
+    console.log(" zip donut " + response);
+    var lats = response.results[0].geometry.location.lat;
+    var long = response.results[0].geometry.location.lng;
+    successDrawMap(lats, long);
+  });
 }
