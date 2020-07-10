@@ -1,5 +1,5 @@
 body {
-    background-color: bisque;
+  background-color: #aadaff;
 }
 
 #Dancy-D {
@@ -8,56 +8,50 @@ body {
 }
 
 #intro {
-color: rgb(224, 66, 122);
+  color: rgb(224, 66, 122);
   font-size: 150px;
-  font-family: 'Modak', cursive;
+  font-family: "Modak", cursive;
 }
 
 #description {
-    border: 1px solid;
-    border-radius: 15px;
-    font-size: 30px;
-    font-family: 'Cabin', sans-serif;
-    /* font-style: italic; */
-    margin: 20px;
-    padding: 20px 0px 20px 0px;
-    text-align: center;
+  border: 1px solid;
+  border-radius: 15px;
+  font-size: 30px;
+  font-family: "Cabin", sans-serif;
+  /* font-style: italic; */
+  margin: 20px;
+  padding: 20px 0px 20px 0px;
+  text-align: center;
 }
 
 .button {
-    font-family: 'Cabin', sans-serif;
+  font-family: "Cabin", sans-serif;
 }
 
 #distant-donut-box {
-    margin: 20px;
-    padding-left: 150px;
-    
+  margin: 20px;
+  padding-left: 150px;
 }
 
 #distant-button {
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-    
-    
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 
 #distant-input {
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
-
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
 #local-donut-box {
-    margin: 20px;
-    padding-left: 150px;
-    
+  margin: 20px;
+  padding-left: 150px;
 }
 
 #map-view {
   border: 1px solid;
   border-radius: 15px;
   margin: 20px;
-
 }
 #map {
-    height: 800px;
+  height: 800px;
 }
