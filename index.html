@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Modak&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:ital@0;1&family=Modak&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Donut Seeker</title>
  
@@ -14,10 +16,10 @@
      
   
       <div class="columns">  <!--header and DancyD start-->
-        <div class="column is-one-third">
+        <div class="column is-one-quarter">
           <img src="dancyD.gif" alt="dancing donut" id="Dancy-D" height="200px" width="200px"></img>
         </div>
-        <div class="column is-two-thirds" id="intro">
+        <div class="column is-three-quarters" id="intro">
           Donut seeker
         </div>
       </div></div> <!--header and Dancy D end-->
@@ -32,7 +34,7 @@
         <div class="column is-half" id="distant-donut-box">
         
         <div class="field is-grouped">
-          <button class="button is-large is-rounded is-info" id="distant-button">Distant Donut</button>
+          <button class="button is-large is-rounded is-info" id="distant-button" onclick="zipDonut()">Distant Donut</button>
           <div class="control"> <input class="input is-large is-rounded" id="distant-input" type="text" placeholder="Search by Zip Code"> 
           </div>
         </div>
