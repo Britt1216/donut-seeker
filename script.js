@@ -93,7 +93,21 @@ function openDialog(closest) {
   var isOpen = closest.opening_hours.isOpen();
   $(".donut-shop-name").text(name);
   $(".donut-shop-address").text(address);
-  $("#dialog").dialog();
+  $("#dialog").dialog({
+    buttons: [
+      {
+        text: "Ok",
+        icon: "ui-icon-heart",
+        click: function () {
+          $(this).dialog("close");
+        },
+
+        // Uncommenting the following line would hide the text,
+        // resulting in the label being used as a tooltip
+        //showText: false
+      },
+    ],
+  });
 }
 
 function success(pos) {
