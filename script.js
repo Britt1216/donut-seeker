@@ -75,7 +75,6 @@ function mapDonut(lats, long) {
         url: idUrl,
         method: "GET",
       }).then(function (results) {
-        $("#ratingText").text("");
         var review = results.result.reviews;
         var liText =
           `<li><p>Author:` +
@@ -129,6 +128,9 @@ function success(pos) {
 }
 
 function successDrawMap(lats, long) {
+  $(".donut-shop-name").text("");
+  $(".donut-shop-address").text("");
+  $("#ratingText").text("");
   var coordinates = { lat: lats, lng: long };
   var map = new google.maps.Map(document.getElementById("map"), {
     zoom: 4,
@@ -137,6 +139,7 @@ function successDrawMap(lats, long) {
   var marker = new google.maps.Marker({ position: coordinates, map: map });
   mapDonut(lats, long);
 }
+
 $("#zip").on("submit", function (e) {
   zipDonut(e);
 });
