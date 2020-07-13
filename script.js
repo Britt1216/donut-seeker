@@ -97,7 +97,6 @@ function openDialog(closest) {
     buttons: [
       {
         text: "Ok",
-        icon: "ui-icon-heart",
         click: function () {
           $(this).dialog("close");
         },
@@ -126,8 +125,12 @@ function successDrawMap(lats, long) {
   var marker = new google.maps.Marker({ position: coordinates, map: map });
   mapDonut(lats, long);
 }
+$("#zip").on("submit", function (e) {
+  zipDonut(e);
+});
 
-function zipDonut() {
+function zipDonut(event) {
+  event.preventDefault();
   var zip = $("#distant-input").val();
   var api = "AIzaSyDPDVh2zxw_0DqmSUxfeAW-Zzdhh5cWA3o";
   var zipUrl = `https://maps.googleapis.com/maps/api/geocode/json?key=${api}&components=postal_code:${zip}`;
