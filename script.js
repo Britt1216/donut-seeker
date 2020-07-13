@@ -11,16 +11,16 @@ function findDonut() {
 
 function giphyDonut(cb) {
   var mapi = `7707V2ugjiHVu7IBmawngyunCUKEIfxE`;
-  var queryURL = `http://api.giphy.com/v1/gifs/search?q=donut+dance&api_key=${mapi}&limit=100`;
+  var queryURL = `http://api.giphy.com/v1/gifs/search?q=donut&api_key=${mapi}&limit=100`;
 
   $.ajax({
     url: queryURL,
     method: "GET",
   }).then(function (response) {
     var rand = Math.floor(Math.random() * 100) + 1;
-    var gifUrl = response.data[rand].images.fixed_height.url;
-    console.log(gifUrl);
-    var gifTitle = response.data[rand].title;
+    var randResponse = response.data[rand];
+    var gifUrl = randResponse.images.fixed_height.url;
+    var gifTitle = randResponse.title;
     $(".victory").attr({
       src: gifUrl,
       alt: gifTitle,
