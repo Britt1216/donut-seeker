@@ -11,7 +11,7 @@ function findDonut() {
 
 function giphyDonut(cb) {
   var mapi = `7707V2ugjiHVu7IBmawngyunCUKEIfxE`;
-  var queryURL = `http://api.giphy.com/v1/gifs/search?q=donut&api_key=${mapi}&limit=100`;
+  var queryURL = `https://api.giphy.com/v1/gifs/search?q=donut&api_key=${mapi}&limit=100`;
 
   $.ajax({
     url: queryURL,
@@ -99,9 +99,7 @@ function mapDonut(lats, long) {
 }
 
 function openDialog(closest) {
-  giphyDonut(function (response) {
-    var dis = response;
-  });
+  giphyDonut();
 
   var name = closest.name;
   var address = closest.formatted_address;

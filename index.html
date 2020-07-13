@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cabin:ital@0;1&family=Modak&display=swap" rel="stylesheet">
-    <link href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" rel="stylesheet">
+    <link href="https://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Donut Seeker</title>
  
@@ -49,10 +49,7 @@
       <div class="columns"> <!--map start-->
         <div class="column is-full-desktop is-full-mobile"><div id="map"></div></div>
       </div><!--map end-->
-     
-      <div class= "columns">  <!-- section for reviews to populate-->
-        <div class= "field" id="review-field">Reviews:</div>
-      </div>
+
     </div> <!--container end-->
 
   <!-- </section> -->
@@ -62,7 +59,7 @@
       defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPDVh2zxw_0DqmSUxfeAW-Zzdhh5cWA3o&libraries=places&callback=initMap"
     ></script>
-    <div id="dialog">
+    <div id="dialog" class="hidden">
       <div><img src="" alt="" class="victory"></div>
       <h2>Your Closest Donut is:</h2>
       <h3 class="donut-shop-name"></h3>
