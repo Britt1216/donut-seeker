@@ -65,6 +65,8 @@ function mapDonut(lats, long) {
       var id = place.place_id;
 
       createMarker(results[0]);
+      
+      //var reviewText= results.result.reviews.text;
       var idUrl = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?place_id=${id}&fields=name,rating,review,formatted_phone_number&key=${api}`;
       console.log(idUrl);
       $.ajax({
@@ -73,7 +75,7 @@ function mapDonut(lats, long) {
       }).then(function (results) {
         console.log(results.result.reviews);
       });
-    }
+    }//$("#review-shop").text(rating + reviewText);
   }
   function createMarker(place) {
     new google.maps.Marker({
@@ -87,14 +89,16 @@ function openDialog(closest) {
   giphyDonut(function (response) {
     var dis = response;
   });
-
   var name = closest.name;
   var address = closest.formatted_address;
   var isOpen = closest.opening_hours.isOpen();
+  var rating= closest.rating;
   $(".donut-shop-name").text(name);
   $(".donut-shop-address").text(address);
+  $(".rating").text(rating);
   $("#dialog").dialog();
-}
+  
+  }
 
 function success(pos) {
   var crd = pos.coords;
