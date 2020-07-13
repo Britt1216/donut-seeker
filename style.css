@@ -1,5 +1,5 @@
 body {
-  background-color: #aadaff;
+  background-color: bisque;
 }
 
 #Dancy-D {
@@ -62,4 +62,15 @@ body {
 }
 .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
   float: none;
+}
+button.ui-button.ui-corner-all.ui-widget {
+  background: #3298dc;
+  color: white;
+  width: 100%;
+  padding: 20px;
+  font-size: 2em;
+  text-transform: uppercase;
+}
+img.victory {
+  width: 100%;
 }
