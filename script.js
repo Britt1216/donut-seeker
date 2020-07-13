@@ -9,7 +9,7 @@ function findDonut() {
   navigator.geolocation.getCurrentPosition(success, error, options);
 }
 
-function giphyDonut(cb) {
+function giphyDonut() {
   var mapi = `7707V2ugjiHVu7IBmawngyunCUKEIfxE`;
   var queryURL = `https://api.giphy.com/v1/gifs/search?q=donut&api_key=${mapi}&limit=100`;
 
@@ -25,8 +25,6 @@ function giphyDonut(cb) {
       src: gifUrl,
       alt: gifTitle,
     });
-
-    cb(response);
   });
 }
 
@@ -77,6 +75,7 @@ function mapDonut(lats, long) {
         url: idUrl,
         method: "GET",
       }).then(function (results) {
+        $("#ratingText").text("");
         var review = results.result.reviews;
         var liText =
           `<li><p>Author:` +
