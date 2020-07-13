@@ -11,13 +11,21 @@ function findDonut() {
 
 function giphyDonut(cb) {
   var mapi = `7707V2ugjiHVu7IBmawngyunCUKEIfxE`;
-  var queryURL = `http://api.giphy.com/v1/gifs/search?q=donut&api_key=${mapi}&limit=1`;
+  var queryURL = `http://api.giphy.com/v1/gifs/search?q=donut+dance&api_key=${mapi}&limit=100`;
 
   $.ajax({
     url: queryURL,
     method: "GET",
   }).then(function (response) {
-    console.log(response);
+    var rand = Math.floor(Math.random() * 100) + 1;
+    var gifUrl = response.data[rand].images.fixed_height.url;
+    console.log(gifUrl);
+    var gifTitle = response.data[rand].title;
+    $(".victory").attr({
+      src: gifUrl,
+      alt: gifTitle,
+    });
+
     cb(response);
   });
 }
@@ -58,7 +66,6 @@ function mapDonut(lats, long) {
 
   function callback(results, status) {
     var closest = results[0];
-    console.log(closest);
     openDialog(closest);
     if (status == google.maps.places.PlacesServiceStatus.OK) {
       var place = results[0];
@@ -66,13 +73,10 @@ function mapDonut(lats, long) {
 
       createMarker(results[0]);
       var idUrl = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?place_id=${id}&fields=name,rating,review,formatted_phone_number&key=${api}`;
-      console.log(idUrl);
       $.ajax({
         url: idUrl,
         method: "GET",
-      }).then(function (results) {
-        console.log(results.result.reviews);
-      });
+      }).then(function (results) {});
     }
   }
   function createMarker(place) {
@@ -139,7 +143,6 @@ function zipDonut(event) {
     url: zipUrl,
     method: "GET",
   }).then(function (response) {
-    console.log(" zip donut " + response);
     var lats = response.results[0].geometry.location.lat;
     var long = response.results[0].geometry.location.lng;
     successDrawMap(lats, long);
