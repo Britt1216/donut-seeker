@@ -1,5 +1,10 @@
 body {
   background-color: bisque;
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
 }
 
 #Dancy-D {
@@ -29,8 +34,8 @@ body {
 }
 
 #distant-donut-box {
-  margin: 20px;
-  padding-left: 150px;
+  margin: 5px;
+  padding-left: 5px;
 }
 
 #distant-button {
@@ -63,6 +68,7 @@ body {
 .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
   float: none;
 }
+
 button.ui-button.ui-corner-all.ui-widget {
   background: #3298dc;
   color: white;
@@ -71,6 +77,7 @@ button.ui-button.ui-corner-all.ui-widget {
   font-size: 2em;
   text-transform: uppercase;
 }
+
 img.victory {
   width: 100%;
 }
