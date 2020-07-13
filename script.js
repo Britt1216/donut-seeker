@@ -76,7 +76,18 @@ function mapDonut(lats, long) {
       $.ajax({
         url: idUrl,
         method: "GET",
-      }).then(function (results) {});
+      }).then(function (results) {
+        var review = results.result.reviews;
+        var liText =
+          `<li><p>Author:` +
+          review[0].author_name +
+          `</p><p>Rating: ` +
+          review[0].rating +
+          `</p><p>` +
+          review[0].text +
+          `</p></li>`;
+        $("#ratingText").append(liText);
+      });
     }
   }
   function createMarker(place) {
