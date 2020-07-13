@@ -72,13 +72,7 @@ function mapDonut(lats, long) {
         method: "GET",
       }).then(function (results) {
         console.log(results.result.reviews);
-<<<<<<< HEAD
-        console.log(results.result.rating);
-     })
-    }
-=======
       });
->>>>>>> master
     }
   }
   function createMarker(place) {
