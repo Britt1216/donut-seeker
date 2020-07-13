@@ -4,35 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Modak&display=swap" rel="stylesheet"> -->
     <link href="https://fonts.googleapis.com/css2?family=Cabin:ital@0;1&family=Modak&display=swap" rel="stylesheet">
     <link href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Donut Seeker</title>
  
-  </head>0
+  </head>
   <body>
-    <section class="section">
+    <!-- <section class="section"> -->
     <div class="container">  <!--container start-->
-     
-  
+      
       <div class="columns">  <!--header and DancyD start-->
-        <div class="column is-one-quarter">
-          <img src="dancyD.gif" alt="dancing donut" id="Dancy-D" height="200px" width="200px"></img>
+        <div class="column is-one-quarter-desktop is-full-mobile">
+           <img src="dancyD.gif" alt="dancing donut" id="Dancy-D" height="200px" width="200px"></img>
         </div>
-        <div class="column is-three-quarters" id="intro">
+        <div class="column is-three-quarters-desktop is-full-mobile" id="intro">
           Donut Seeker
         </div>
-      </div></div> <!--header and Dancy D end-->
+      </div> <!--header and Dancy D end-->
 
       <div class="columns"> <!--subtitle start-->
-        <div class="column is-full" id="description">
+        <div class="column is-full-desktop is-full-mobile" id="description">
         <h2>Taking you on a quest for delicious rings!</h2>
         </div>
       </div><!--subtitle end-->
 
       <div class="columns"> <!--button section start-->
-        <div class="column is-half" id="distant-donut-box">
+        <div class="column is-half-desktop is-full-mobile" id="distant-donut-box">
         
           <form class="field is-grouped" id="zip">
             <button class="button is-large is-rounded is-info" id="distant-button">Distant Donut</button>
@@ -40,7 +38,7 @@
             </div>
           </form>
         </div>
-        <div class="column is-half" id="local-donut-box">
+        <div class="column is-half-desktop is-full-mobile" id="local-donut-box">
         
         <div class="field">
           <button class="button is-large is-rounded is-danger" onclick="findDonut()">Find Donut</button>
@@ -49,19 +47,16 @@
       </div><!--button section end-->
 
       <div class="columns"> <!--map start-->
-        <div class="column is-full"><div id="map"></div></div>
+        <div class="column is-full-desktop is-full-mobile"><div id="map"></div></div>
       </div><!--map end-->
-
-      
-
+     
       <div class= "columns">  <!-- section for reviews to populate-->
         <div class= "field" id="review-field">Reviews:</div>
       </div>
     </div> <!--container end-->
 
-  </section>
+  <!-- </section> -->
   
-
     <script
       async
       defer
