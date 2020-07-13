@@ -1,5 +1,5 @@
 body {
-  background-color: bisque;
+  background-color: #aadaff;
 }
 
 #Dancy-D {
@@ -54,4 +54,12 @@ body {
 }
 #map {
   height: 800px;
+}
+/* jQuery UI Customization */
+.ui-draggable .ui-dialog-titlebar {
+  cursor: move;
+  display: none;
+}
+.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
+  float: none;
 }
