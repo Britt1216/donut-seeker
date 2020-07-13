@@ -1,9 +1,11 @@
 body {
   background-color: bisque;
+
   top: 0;
   left: 0;
   min-width: 100%;
   min-height: 100%;
+
 }
 
 #Dancy-D {
@@ -79,4 +81,8 @@ button.ui-button.ui-corner-all.ui-widget {
 
 img.victory {
   width: 100%;
+}
+
+ul p {
+  margin-top: 7px;
 }
