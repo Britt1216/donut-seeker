@@ -1,21 +1,7 @@
 # donut-seeker
+A project that allows a user to locate the closest donut shop to either a zip code or to their location. The user can either enter in a zip code and click on the "distant donut" button, or can click on the "find donut" button to receive information based on their current location. The application will then give the user the closest donut shop via a pop-up window. In the window, it gives the user the name, address, telephone number, overall rating, and the most recent review on the donut shop. The user can then click okay to have the pop-up disappear. The information is then reset and the user can search for more donuts. 
 
-One group member should create a new Github repo for the project.
-
-Navigate back to the repo's "Settings" page and then select "Branches" from the left sidebar.
-
-Under "Branch Protection Rules" click "Add rule". In the "Branch name pattern" field, type "master" (note the capitalization).
-
-You should be presented with some options below, check the following checkboxes:
-"Require pull request reviews before merging"
-"Dismiss stale pull request approvals when new commits are pushed"
-"Require review from Code Owners"
-"Include administrators"
-
-If completed successfully, no one should be able to push directly to the master branch. Instead, all changes must be made in the form of pull requests (from other branches into master) that are first reviewed and then merged by another group member.
-
-Once complete, invite the other group members as collaborators.
-
-Hints
-Make sure each invited group member checks their email and accepts the invitation.
-Ask an instructor or TA for assistance if you get stuck!
+https://britt1216.github.io/donut-seeker/
+![2020-07-14 (2)](https://user-images.githubusercontent.com/63683598/87490209-59613b00-c602-11ea-9c0b-8cd41a6fa76c.png)
+![2020-07-14 (3)](https://user-images.githubusercontent.com/63683598/87490213-5b2afe80-c602-11ea-8b7d-fe4eb48cec7b.png)
+![2020-07-14 (4)](https://user-images.githubusercontent.com/63683598/87490217-5cf4c200-c602-11ea-8be5-f6d79c1606c8.png)
